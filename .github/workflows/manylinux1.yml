@@ -52,8 +52,8 @@ jobs:
     - name: Upload Wheels
       uses: actions/upload-artifact@v1
       with: 
-        name: manylinux1-wheels
-        path: manylinux1-wheels
+        name: manylinux-aarch64-wheels
+        path: manylinux-aarch64-wheels
     - name: Publish to PyPI if tagged
       if: startsWith(github.ref, 'refs/tags')
       env:
@@ -64,4 +64,4 @@ jobs:
         pip --version
         python -m pip install --upgrade pip
         pip install twine setuptools-scm
-        twine upload manylinux1-wheels/fugashi*whl
+        twine upload manylinux-aarch64-wheels/fugashi*whl
