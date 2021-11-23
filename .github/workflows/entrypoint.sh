@@ -11,8 +11,10 @@ git clone --depth=1 git://github.com/taku910/mecab.git
 cd mecab/mecab
 if [ "$(uname -m)" == "aarch64" ]
 then
+    echo "Inside if"
     ./configure --enable-utf8-only --build=aarch64-unknown-linux-gnu
 else
+    echo "Inside else"
     ./configure --enable-utf8-only
 fi
 make
@@ -27,9 +29,11 @@ export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/lib/
 
 if [ "$(uname -m)" == "aarch64" ]
 then
-    Python=cp36-cp36m cp37-cp37m cp38-cp38 cp39-cp39
+    echo "Inside if python"
+    Python="cp36-cp36m cp37-cp37m cp38-cp38 cp39-cp39"
 else
-    Python=cp35-cp35m cp36-cp36m cp37-cp37m cp38-cp38 cp39-cp39
+    echo "Inside else python"
+    Python="cp35-cp35m cp36-cp36m cp37-cp37m cp38-cp38 cp39-cp39"
 fi
 for PYVER in $Python; do
   # install cython first
